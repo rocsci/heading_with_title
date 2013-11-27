@@ -1,6 +1,6 @@
 # encoding: utf-8
 module HeadingWithTitle
-  module Helpers
+  module Helpers #:nodoc:
     # Set page title. Use this method in your views
     def page_title(title = nil)
       if title.present?

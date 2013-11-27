@@ -1,20 +1,18 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# encoding: utf-8
+$:.push File.expand_path("../lib", __FILE__)
 require 'heading_with_title/version'
 
-Gem::Specification.new do |spec|
-  spec.name          = "heading_with_title"
-  spec.version       = HeadingWithTitle::VERSION
-  spec.authors       = ["tanraya"]
-  spec.email         = ["demerest@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "heading_with_title"
+  s.version     = HeadingWithTitle::VERSION
+  s.authors     = ["Andrew Kozloff"]
+  s.email       = ["demerest@gmail.com"]
+  s.homepage    = "https://github.com/rocsci/heading_with_title"
+  s.summary     = 'A set of helpers for Rails'
+  s.description = 'Setting the page heading at the same time with a page title'
   spec.license       = "MIT"
-
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 

@@ -1,8 +1,5 @@
 # encoding: utf-8
-require 'rails'
-require 'heading_with_title'
-require 'heading_with_title/railtie'
-require 'action_view'
+require "heading_with_title"
 
 describe HeadingWithTitle::Helpers do
   include ActionView::Helpers
