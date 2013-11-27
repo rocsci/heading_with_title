@@ -56,4 +56,4 @@ end
 ```
 ## License
 
-[The MIT License](https://github.com/tanraya/bootbox-rails/blob/master/MIT-LICENSE)
+[The MIT License](https://github.com/tanraya/heading_with_title/blob/master/MIT-LICENSE)
