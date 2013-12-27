@@ -33,6 +33,15 @@ heading, or you call `page_title('Something')` to set page title without heading
   <span><%= heading %></span>
 <% end %>
 
+# You can also call it without arguments. In this case
+# it will use I18n Lazy Lookup (http://guides.rubyonrails.org/i18n.html#lazy-lookup)
+# with key defined by `default_i18n_key` setting.
+<%= heading_with_title %>
+
+# If you need to use I18n Interpolation (http://guides.rubyonrails.org/i18n.html#interpolation)
+# just pass hash as argument:
+<%= heading_with_title username: 'John Doe' %>
+
 # Or you might want to set only page title
 <% page_title 'Users' %>
 ```
@@ -52,8 +61,23 @@ HeadingWithTitle.configure do |config|
 
   # Default heading size (h1 by default)
   config.default_heading_size = :h1
+
+  # Default I18n key when call heading_with_title
+  # helper without arguments
+  # Its the same as:
+  #
+  #  heading_with_title t('.heading')
+  #
+  config.default_i18n_key = '.heading'
 end
 ```
+
+## Changelog
+
+### 0.0.2
+* Ability to call `heading_with_title` without arguments. It uses I18n translation in this case.
+* Support for I18n interpolation.
+
 ## License
 
 [The MIT License](https://github.com/tanraya/heading_with_title/blob/master/MIT-LICENSE)

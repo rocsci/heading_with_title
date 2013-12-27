@@ -13,7 +13,18 @@ module HeadingWithTitle
       end
     end
 
-    def heading_with_title(heading, &block)
+    def heading_with_title(arg = nil, &block)
+      heading = case arg
+      when NilClass
+        t(HeadingWithTitle.default_i18n_key)
+      when Hash
+        t(HeadingWithTitle.default_i18n_key, arg)
+      when String
+        arg
+      else
+        raise ArgumentError, 'Incorrect arguments for heading_with_title!'
+      end
+
       page_title(heading)
       heading = raw(block.call(heading)) if block_given?
       content_tag(HeadingWithTitle.default_heading_size, heading)

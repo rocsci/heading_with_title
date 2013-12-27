@@ -1,11 +1,21 @@
 # encoding: utf-8
 require "heading_with_title"
 
+module HeadingWithTitle
+  module Helpers #:nodoc:
+    def t(*args)
+      I18n.t(*args)
+    end
+  end
+end
+
 describe HeadingWithTitle::Helpers do
   include ActionView::Helpers
   include HeadingWithTitle::Helpers
 
-  before { Rails.stub_chain(:application, :name).and_return('AwesomeApp') }
+  before do
+    Rails.stub_chain(:application, :name).and_return('AwesomeApp')
+  end
 
   describe '.page_title' do
     it 'sets a page title' do
@@ -47,6 +57,20 @@ describe HeadingWithTitle::Helpers do
     it 'respects heading size' do
       HeadingWithTitle.default_heading_size = :h2
       heading_with_title('Users').should == '<h2>Users</h2>'
+    end
+
+    it 'uses I18n when called without args' do
+      HeadingWithTitle.default_heading_size = :h1
+      heading_with_title.should == '<h1>translation missing: en.heading</h1>'
+    end
+
+    it 'allows hash as arguments (I18n interpolation)' do
+      I18n.backend.store_translations :en, heading: 'Hello %{name}!'
+      heading_with_title(name: 'John Doe').should == '<h1>Hello John Doe!</h1>'
+    end
+
+    it 'raises ArgumentError on incorrect arguments' do
+      expect { heading_with_title(OpenStruct.new(name: 'Weird')) }.to raise_error(ArgumentError, 'Incorrect arguments for heading_with_title!')
     end
   end
 end
