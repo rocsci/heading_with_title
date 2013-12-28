@@ -47,7 +47,7 @@ require "action_view"
 #
 #    # Title suffix that shown at the end of page title
 #    # Accepts String or Proc
-#    config.title_suffix = ->{ Rails.application.name }
+#    config.title_suffix = ->{ Rails.application.class.parent_name }
 #
 #    # Default heading size (h1 by default)
 #    config.default_heading_size = :h1
@@ -69,7 +69,7 @@ module HeadingWithTitle
 
   # Title suffix that shown at the end of page title
   mattr_accessor :title_suffix
-  @@title_suffix = ->{ Rails.application.name }
+  @@title_suffix = ->{ Rails.application.class.parent_name }
 
   # Default heading size (h1 by default)
   mattr_accessor :default_heading_size

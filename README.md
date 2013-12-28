@@ -10,7 +10,7 @@ First, put this line in your `Gemfile`:
 gem 'heading_with_title'
 ```
 
-Then run `bundle install` to update your application's bundle.# 
+Then run `bundle install` to update your application's bundle.
 
 ## Usage
 
@@ -57,7 +57,7 @@ HeadingWithTitle.configure do |config|
 
   # Title suffix that shown at the end of page title
   # Accepts String or Proc
-  config.title_suffix = ->{ Rails.application.name }
+  config.title_suffix = ->{ Rails.application.class.parent_name }
 
   # Default heading size (h1 by default)
   config.default_heading_size = :h1
@@ -73,6 +73,9 @@ end
 ```
 
 ## Changelog
+
+### 0.0.3
+* Bugfix: Fix Rails application name obtaining
 
 ### 0.0.2
 * Ability to call `heading_with_title` without arguments. It uses I18n translation in this case.

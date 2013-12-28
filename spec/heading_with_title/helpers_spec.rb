@@ -14,7 +14,7 @@ describe HeadingWithTitle::Helpers do
   include HeadingWithTitle::Helpers
 
   before do
-    Rails.stub_chain(:application, :name).and_return('AwesomeApp')
+    Rails.stub_chain(:application, :class, :parent_name).and_return('AwesomeApp')
   end
 
   describe '.page_title' do
