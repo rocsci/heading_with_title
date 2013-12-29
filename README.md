@@ -91,3 +91,7 @@ end
 ## License
 
 [The MIT License](https://github.com/tanraya/heading_with_title/blob/master/MIT-LICENSE)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rocsci/heading_with_title/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
