@@ -1,5 +1,6 @@
 # encoding: utf-8
 require "heading_with_title"
+require "support/active_record"
 
 module HeadingWithTitle
   module Helpers #:nodoc:
@@ -67,6 +68,10 @@ describe HeadingWithTitle::Helpers do
     it 'allows hash as arguments (I18n interpolation)' do
       I18n.backend.store_translations :en, heading: 'Hello %{name}!'
       heading_with_title(name: 'John Doe').should == '<h1>Hello John Doe!</h1>'
+    end
+
+    it 'allows ActiveRecord instance' do
+      heading_with_title(Product.new).should == '<h1>Tasty Cakes</h1>'
     end
 
     it 'raises ArgumentError on incorrect arguments' do

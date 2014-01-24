@@ -42,8 +42,12 @@ heading, or you call `page_title('Something')` to set page title without heading
 # just pass hash as argument:
 <%= heading_with_title username: 'John Doe' %>
 
+# Also it accepts ActiveRecord model instance
+<% heading_with_title Product.find(777) %>
+
 # Or you might want to set only page title
 <% page_title 'Users' %>
+
 ```
 ## Configuration
 
@@ -73,6 +77,9 @@ end
 ```
 
 ## Changelog
+
+### 0.0.4
+* Improvement: Now heading_with_title accepts ActiveRecord model instances.
 
 ### 0.0.3
 * Bugfix: Fix Rails application name obtaining

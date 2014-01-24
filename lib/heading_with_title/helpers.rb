@@ -21,6 +21,8 @@ module HeadingWithTitle
         t(HeadingWithTitle.default_i18n_key, arg)
       when String
         arg
+      when ActiveRecord::Base
+        arg.to_s
       else
         raise ArgumentError, 'Incorrect arguments for heading_with_title!'
       end
