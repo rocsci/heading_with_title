@@ -76,18 +76,6 @@ HeadingWithTitle.configure do |config|
 end
 ```
 
-## Changelog
-
-### 0.0.4
-* Improvement: Now heading_with_title accepts ActiveRecord model instances.
-
-### 0.0.3
-* Bugfix: Fix Rails application name obtaining
-
-### 0.0.2
-* Ability to call `heading_with_title` without arguments. It uses I18n translation in this case.
-* Support for I18n interpolation.
-
 ## License
 
 [The MIT License](https://github.com/tanraya/heading_with_title/blob/master/MIT-LICENSE)

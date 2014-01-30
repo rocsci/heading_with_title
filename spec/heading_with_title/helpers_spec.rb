@@ -13,6 +13,7 @@ end
 describe HeadingWithTitle::Helpers do
   include ActionView::Helpers
   include HeadingWithTitle::Helpers
+  include ActionView::Context
 
   before do
     Rails.stub_chain(:application, :class, :parent_name).and_return('AwesomeApp')
@@ -49,7 +50,7 @@ describe HeadingWithTitle::Helpers do
 
     it 'applies block' do
       result = heading_with_title 'Users' do |heading|
-        "<span>" + heading + "</span>"
+        raw("<span>" + heading + "</span>")
       end
 
       result.should == '<h1><span>Users</span></h1>'

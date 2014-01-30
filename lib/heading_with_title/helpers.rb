@@ -28,7 +28,12 @@ module HeadingWithTitle
       end
 
       page_title(heading)
-      heading = raw(block.call(heading)) if block_given?
+
+      if block_given?
+        content = capture(heading, &block)
+        heading = raw(content)
+      end
+
       content_tag(HeadingWithTitle.default_heading_size, heading)
     end
   end
